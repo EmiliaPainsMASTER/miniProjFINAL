@@ -5,35 +5,93 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // Movement speed as a float
-    private float _speed = 5.0f;
-    
+    public float _speed = 5f;
+
     // Store the current movement direction
     private Rigidbody _rb;
-    private float force = 2500;
+    private const float Force = 15000f;
+    private float _levelOne = 195f;
+    private float _levelTwo = 800f;
+    private float _levelThree = 1600f;
+    private float _winPos = 2000f;
+    private float _tooHigh = 10f;
 
-    // Update is called once per frame
+    // to Check if the cat is on the ground, if otherwise disable jumping
+    private bool _isGrounded; 
+    // if player hits a barrier, cat ded
+    private bool _gameOver;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
     }
+
     void Update()
     {
-        //TODO add a isGrounded function to prevent the cat from flying into the air
-        // Update moveDirection based on input
-        if (Input.GetKey(KeyCode.W))
+        while (!_gameOver)
         {
-            _rb.AddForce(Vector3.up * force * Time.deltaTime);
+            if (_isGrounded && transform.position.y <= _tooHigh)
+            {
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
+                {
+                    _rb.AddForce(Vector3.up * Force * Time.deltaTime);
+                }
+            }
+
+            // Handle speed changes based on position
+            if (transform.position.x >= _levelOne)
+            {
+                _speed = 10f;
+            }
+
+            if (transform.position.x >= _levelTwo)
+            {
+                _speed = 15f;
+            }
+
+            if (transform.position.x >= _levelThree)
+            {
+                _speed = 20f;
+            }
+
+            if (transform.position.x >= _winPos)
+            {
+                _speed = 0;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            // Move the player forward
+            transform.Translate(Vector3.forward * (_speed * Time.deltaTime));
         }
-        //if player position is at - 50 increase speed
-        if(transform.position.x >= 55)
+    }
+
+    void onCollisionEnter(Collision other)
+    {
+
+    }
+
+    // Detect collision with the ground (for grounded check)
+    void OnCollisionEnter(Collision other)
+    {
+        // If we collide with an object tagged "Ground", we mark the cat as grounded
+        if (other.gameObject.CompareTag("Ground"))
         {
-            _speed = 7.5f;
+            _isGrounded = true;
         }
-        //ToDo check background (denotes where a level ends) positions using barriers 
-        // if(transform.position.x >= 55)
-        // {
-        //     _speed = 7.5f;
-        // }
-        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+        if (other.gameObject.CompareTag("Barrier"))
+        {
+            _gameOver = true;
+            //destroy the player then display game over
+            Destroy(other.gameObject);
+        }
+    }
+
+    // Detect when the cat stops colliding with the ground (for grounded check)
+    void OnCollisionExit(Collision other)
+    {
+        // If we exit the ground collision, mark the cat as not grounded
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            _isGrounded = false;
+        }
     }
 }
