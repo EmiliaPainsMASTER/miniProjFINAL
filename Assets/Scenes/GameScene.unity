@@ -4638,7 +4638,7 @@ GameObject:
   - component: {fileID: 717577164}
   m_Layer: 0
   m_Name: levelOne
-  m_TagString: barrier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6514,7 +6514,7 @@ GameObject:
   - component: {fileID: 1083121324}
   m_Layer: 0
   m_Name: levelTwo
-  m_TagString: barrier
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10803,7 +10803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc2cc65ca2d1af4f98f6ba3d9bba846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  _speed: 5
 --- !u!54 &1971310078
 Rigidbody:
   m_ObjectHideFlags: 0
