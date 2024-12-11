@@ -1,0 +1,11 @@
+Lowpoly Toon Cat Lite 
+	LINK: https://assetstore.unity.com/packages/3d/characters/animals/lowpoly-toon-cat-lite-66083
+	Uses the model and the running animation
+Low Poly Barriers Pack Free 
+	LINK: https://assetstore.unity.com/packages/3d/props/exterior/low-poly-barriers-pack-free-201810
+	Uses the ConcreteBarrier_08_v2.prefab
+TextMeshPro (this comes from unity i think)
+
+Background
+	LINK: https://www.pxfuel.com/en/desktop-wallpaper-fkjwc
+	Only realised post recording of the video that I had to reference the background, just grabbed the first thing I saw and never read into it but it appears creator intended it only for use for desktop backgrounds, however, in the website it is tagged with backgrounds and icons for unity games, so I assumed it was fine when I clicked it but alas 
