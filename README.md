@@ -16,5 +16,8 @@ Uses the ConcreteBarrier_08_v2.prefab
 <br/>
 **TODO** <br/>
 - Sleep? <br/>
+[Alpha Github](https://github.com/EmiliaPainsMASTER/miniProj)
+[Rahman's Main Menu](https://github.com/b00166178/Alpha_Parkour)
 
+[Playtest alpha <3](https://play.unity.com/en/games/d672c9fa-fa29-4097-93de-bfcd174f6133/catgame)
 [Playtest final <3](https://play.unity.com/en/games/1c26ec33-26ef-47d0-8b07-82d9d32a2148/cat-game-v3)
